@@ -1,5 +1,6 @@
 import { ChatEngine } from 'react-chat-engine';
-import 'Style.css';
+import ChatFeed from './components/ChatFeed';
+import './Style.css';
 
 
 export default function App() {
@@ -10,8 +11,10 @@ export default function App() {
         projectID='8573f163-7af7-41b6-b883-14195ffd904f'
         userName='Leandro'
         userSecret='password'
+
+        renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       />
     </div>
-  )
+  );
 }
 
