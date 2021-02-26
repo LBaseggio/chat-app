@@ -160,8 +160,9 @@
 
 .message-form-container {
   position: absolute;
+  /* width: calc(100% - 36px); */
+  width: 100%;
   bottom: 0px;
-  width: calc(100% - 36px);
   padding: 18px;
   background-color: rgb(240, 240, 240);
 }
