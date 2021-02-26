@@ -1,8 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
-import React from 'react';
-
 const TheirMessage = ({ lastMessage, message }) => {
   const isFirstMessageByUser =
     !lastMessage || lastMessage.sender.username !== message.sender.username;
@@ -22,9 +17,7 @@ const TheirMessage = ({ lastMessage, message }) => {
           src={message.attachments[0].file}
           alt="message-attachment"
           className="message-image"
-          style={{
-            marginLeft: isFirstMessageByUser ? '4px' : '48px',
-          }}
+          style={{ marginLeft: isFirstMessageByUser ? '4px' : '48px' }}
         />
       ) : (
         <div
@@ -41,4 +34,5 @@ const TheirMessage = ({ lastMessage, message }) => {
     </div>
   );
 };
+
 export default TheirMessage;
