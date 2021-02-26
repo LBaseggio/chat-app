@@ -6,15 +6,15 @@
   font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .ce-chat-list {
-  background-color: rgb(240, 240, 240) !important;
+  background-image: url('../src/assets/whitediamond.png') !important;
 }
 
 .ce-chats-container {
-  background-color: rgb(240, 240, 240) !important;
+  background-image: url('../src/assets/whitediamond.png') !important;
 }
 
 .ce-active-chat-card {
@@ -49,7 +49,7 @@
 }
 
 .ce-settings {
-  background-color: rgb(240, 240, 240) !important;
+  background-image: url('../src/assets/whitediamond.png') !important;
 }
 
 .ce-autocomplete-input {
@@ -79,7 +79,7 @@
   height: 100%;
   width: 100%;
   overflow: scroll;
-  background-color: rgb(240, 240, 240);
+  background-image: url('../src/assets/whitediamond.png') !important;
 }
 
 .chat-title-container {
@@ -89,13 +89,13 @@
 }
 
 .chat-title {
-  color: #7554a0;
+  color: #533c71;
   font-weight: 800;
   font-size: 24px;
 }
 
 .chat-subtitle {
-  color: #7554a0;
+  color: #533c71;
   font-weight: 600;
   font-size: 12px;
   padding-top: 4px;
@@ -266,19 +266,19 @@
 }
 
 .button {
-  border-radius: 4px;
+  cursor: pointer;
+  width: 90%;
+  width: 200px;
+  margin: 5px;
+  padding: 20px;
   border: none;
-  background-color: white;
+  border-radius: 4px;
+  font-size: 22px;
   color: black;
   text-align: center;
   text-transform: uppercase;
-  font-size: 22px;
-  padding: 20px;
-  width: 200px;
   transition: all 0.4s;
-  cursor: pointer;
-  margin: 5px;
-  width: 90%;
+  background-color: white;
 }
 .button span {
   cursor: pointer;
@@ -309,8 +309,8 @@
 
 .login-error {
   width: 100%;
-  text-align: center;
   margin: 2vh 0 0 0;
-  font-size: 20px;
   color: #eee;
+  font-size: 20px;
+  text-align: center;
 }

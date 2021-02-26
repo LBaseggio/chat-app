@@ -74,6 +74,16 @@ const ChatFeed = (props) => {
       <div className="message-form-container">
         <MessageForm {...props} chatId={activeChat} />
       </div>
+      {/* <button
+        type="button"
+        className="button-logout"
+        onClick={() => {
+          Cookies.remove('authToken');
+          history.push('/login');
+        }}
+      >
+        Log Out
+      </button> */}
     </div>
   );
 };
