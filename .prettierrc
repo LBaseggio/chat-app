@@ -1,7 +1,8 @@
 {
   "trailingComma": "es5",
-  "tabWidth": 4,
-  "semi": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
   "singleQuote": true,
   "overrides": [
     {
@@ -13,8 +14,9 @@
     {
       "files": ["*.html", "legacy/**/*.js"],
       "options": {
-        "tabWidth": 4
+        "tabWidth": 2
       }
     }
   ]
 }
+
