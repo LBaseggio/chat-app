@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -58,8 +59,8 @@ const Modal = () => {
               <span>Start chatting</span>
             </button>
           </div>
+          <h1 className="login-error">{error}</h1>
         </form>
-        <h1>{error}</h1>
       </div>
     </div>
   );
