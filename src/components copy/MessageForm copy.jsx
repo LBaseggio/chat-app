@@ -1,26 +1,27 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import { React, useState } from 'react';
-import { sendMessage, isTyping } from 'react-chat-engine';
+import { useState } from 'react';
 import { SendOutlined, PictureOutlined } from '@ant-design/icons';
+import { sendMessage, isTyping } from 'react-chat-engine';
 
 const MessageForm = (props) => {
   const [value, setValue] = useState('');
   const { chatId, creds } = props;
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const text = value.trim();
-    if (text.lenght > 0) {
-      sendMessage(creds, chatId, { text });
-    }
-    setValue('');
-  };
-
   const handleChange = (event) => {
     setValue(event.target.value);
+
     isTyping(props, chatId);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const text = value.trim();
+
+    if (text.length > 0) {
+      sendMessage(creds, chatId, { text });
+    }
+
+    setValue('');
   };
 
   const handleUpload = (event) => {
@@ -33,9 +34,8 @@ const MessageForm = (props) => {
         className="message-input"
         placeholder="Send a message..."
         value={value}
-        type="text"
         onChange={handleChange}
-        onSubmit={handleSubmit} // allows the message to be sent on preesing ENTER
+        onSubmit={handleSubmit}
       />
       <label htmlFor="upload-button">
         <span className="image-button">
@@ -55,4 +55,5 @@ const MessageForm = (props) => {
     </form>
   );
 };
+
 export default MessageForm;

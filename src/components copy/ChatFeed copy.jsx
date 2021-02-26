@@ -1,21 +1,8 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable comma-dangle */
-/* eslint-disable no-undef */
-
-import React from 'react';
-import MyMessage from './MyMessage';
-import TheirMessage from './TheirMessage';
-import MessageForm from './MessageForm';
+import MyMessage from './MyMessage copy';
+import TheirMessage from './TheirMessage copy';
+import MessageForm from './MessageForm copy';
 
 const ChatFeed = (props) => {
-  props && console.log('PROPS', props);
   const { chats, activeChat, userName, messages } = props;
 
   const chat = chats && chats[activeChat];
@@ -77,7 +64,7 @@ const ChatFeed = (props) => {
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
-          {chat.people.map((person) => ` • ${person.person.username}`)}
+          {chat.people.map((person) => ` ${person.person.username}`)}
         </div>
       </div>
       {renderMessages()}
@@ -88,4 +75,5 @@ const ChatFeed = (props) => {
     </div>
   );
 };
+
 export default ChatFeed;
