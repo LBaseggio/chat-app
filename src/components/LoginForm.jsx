@@ -56,8 +56,18 @@ const Modal = () => {
           />
           <div align="center">
             <button type="submit" className="button">
-              <span>Start chatting</span>
+              <span>Start chating</span>
             </button>
+            <div className="login-tips">
+              <p className="login-with-these">Login using one of these:</p>
+              <div className="login-info">
+                <em id="login-tips-headers">Username: </em>
+                Boss, Client, Curious, Developer, Visitor
+                <br />
+                <em id="login-tips-headers">Password: </em>
+                password
+              </div>
+            </div>
           </div>
           <h1 className="login-error">{error}</h1>
         </form>
