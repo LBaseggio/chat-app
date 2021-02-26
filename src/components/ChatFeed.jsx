@@ -1,35 +1,55 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
+/* eslint-disable comma-dangle */
 /* eslint-disable no-undef */
+
 import React from 'react';
 import MessageForm from './MessageForm';
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 
-export default function ChatFeed(props) {
-  // console.log(props);
-  const { chats, activeChat, username, messages } = props;
+const ChatFeed = (props) => {
+  const { chats, activeChat, userName, messages } = props;
+
   const chat = chats && chats[activeChat];
-  // console.log(chat, username, messages);
+
+  const renderReadReceipts = (message, isMyMessage) =>
+    chat.people.map(
+      (person, index) =>
+        person.last_read === message.id && (
+          <div
+            key={`read_${index}`}
+            className="read-receipt"
+            style={{
+              float: isMyMessage ? 'right' : 'left',
+              backgroundImage:
+                person.person.avatar && `url(${person.person.avatar})`,
+            }}
+          />
+        )
+    );
 
   const renderMessages = () => {
     const keys = Object.keys(messages);
-    // console.log('keys', keys);
+
     return keys.map((key, index) => {
       const message = messages[key];
-      const lastMessageKey = imdex === 0 ? null : keys[index - 1];
-      const isMyMessage = username === message.sende.username;
+      const lastMessageKey = index === 0 ? null : keys[index - 1];
+      const isMyMessage = userName === message.sender.username;
+
       return (
-        <div key={`message_${index}`} style={{ width: '100%' }}>
+        <div key={`msg_${index}`} style={{ width: '100%' }}>
           <div className="message-block">
             {isMyMessage ? (
               <MyMessage message={message} />
             ) : (
               <TheirMessage
                 message={message}
-                lastmessage={message[lastMessageKey]}
+                lastMessage={messages[lastMessageKey]}
               />
             )}
           </div>
@@ -40,23 +60,21 @@ export default function ChatFeed(props) {
               marginLeft: isMyMessage ? '0px' : '68px',
             }}
           >
-            read-receipts
+            {renderReadReceipts(message, isMyMessage)}
           </div>
         </div>
       );
     });
   };
 
-  if (!chat) return 'Loading...';
+  if (!chat) return <div />;
 
   return (
-    <div>
-      <div className="chat-feed">
-        <div className="chat-title-container">
-          <div className="chat-title">{chat?.title}</div>
-          <div className="chat-subtitle">
-            {chat.people.map((person) => ` ${person.person.username}`)}
-          </div>
+    <div className="chat-feed">
+      <div className="chat-title-container">
+        <div className="chat-title">{chat?.title}</div>
+        <div className="chat-subtitle">
+          {chat.people.map((person) => ` • ${person.person.username}`)}
         </div>
       </div>
       {renderMessages()}
@@ -66,4 +84,5 @@ export default function ChatFeed(props) {
       </div>
     </div>
   );
-}
+};
+export default ChatFeed;
